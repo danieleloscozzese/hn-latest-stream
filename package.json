@@ -1,27 +1,34 @@
 {
-  "name": "hn-latest-stream",
-  "version": "1.0.2",
-  "description": "> hackernews stream of latest stories as JSON or HTML",
+  "name": "@dagher/stream-hackernews",
+  "version": "1.0.0",
+  "description": "A JSON or HTML stream of the latest stories from hackernews",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "David Mark Clements",
+  "keywords": [
+    "stream",
+    "streams"
+  ],
+  "contributors": [
+    "David Mark Clements",
+    {
+      "name": "Daniel Arthur Gallagher",
+      "url": "https://danielarthurgallagher.dev/"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "got": "^11.5.2",
     "readable-stream": "^3.6.0"
   },
   "devDependencies": {
-    "standard": "^14.3.4"
+    "prettier": "3.4.2"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidmarkclements/hn-latest-stream.git"
+    "url": "git+https://github.com/danieleloscozzese/hn-latest-stream.git"
   },
   "bugs": {
-    "url": "https://github.com/davidmarkclements/hn-latest-stream/issues"
+    "url": "https://github.com/danieleloscozzese/hn-latest-stream/issues"
   },
-  "homepage": "https://github.com/davidmarkclements/hn-latest-stream#readme"
+  "homepage": "https://github.com/danieleloscozzese/hn-latest-stream#readme",
+  "packageManager": "npm@11.0.0+sha512.11dff29565d2297c74e7c594a9762581bde969f0aa5cbe6f5b3644bf008a16c065ece61094d9ffbb81125be38df8e1ba43eb8244b3d30c61eb797e9a2440e3ec"
 }

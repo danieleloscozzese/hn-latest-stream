@@ -5,10 +5,10 @@ const got = require("got");
 
 const { PassThrough } = stream;
 
-const base = 'https://hacker-news.firebaseio.com/v0'
+const base = "https://hacker-news.firebaseio.com/v0";
 
-function htmlify (story) {
-  const { by, title, url } = story
+function htmlify(story) {
+  const { by, title, url } = story;
 
   return `
   <article class='hn-article'>
@@ -16,25 +16,25 @@ function htmlify (story) {
     <h3>${title}<h3>
     <a href="${url}">${url}</a>
   </article>
-  `
+  `;
 }
 
-async function hydrate (stream, max, json) {
-  const stories = await got(`${base}/newstories.json`).json()
-  let comma = ''
-  if (json) stream.push('[')
+async function hydrate(stream, max, json) {
+  const stories = await got(`${base}/newstories.json`).json();
+  let comma = "";
+  if (json) stream.push("[");
   for (const id of stories) {
-    const story = await got(`${base}/item/${id}.json`).json()
+    const story = await got(`${base}/item/${id}.json`).json();
     if (json) {
-      stream.push(comma + JSON.stringify(story))
-      comma = ','
+      stream.push(comma + JSON.stringify(story));
+      comma = ",";
     } else {
-      stream.push(htmlify(story))
+      stream.push(htmlify(story));
     }
-    if (--max <= 0) break
+    if (--max <= 0) break;
   }
-  if (json) stream.push(']')
-  stream.end()
+  if (json) stream.push("]");
+  stream.end();
 }
 
 /**
@@ -45,21 +45,21 @@ async function hydrate (stream, max, json) {
  * If JSON is requested, the stream is created in object mode.
  * @returns {stream.Readable} The stream with the results
  */
-function hnLatestStream (max = 10, output = 'html') {
-  output = (output + '').toLowerCase()
-  if (output !== 'html' && output !== 'json') {
-    throw Error('output parameter must be "html" or "json"')
+function hnLatestStream(max = 10, output = "html") {
+  output = (output + "").toLowerCase();
+  if (output !== "html" && output !== "json") {
+    throw Error('output parameter must be "html" or "json"');
   }
   if (max <= 0) {
-    throw Error('max parameter must be greater than 0')
+    throw Error("max parameter must be greater than 0");
   }
-  const json = output === 'json'
-  const stream = PassThrough()
+  const json = output === "json";
+  const stream = PassThrough();
 
   hydrate(stream, max, json).catch((err) => {
-    stream.emit('error', err)
-  })
-  return stream
+    stream.emit("error", err);
+  });
+  return stream;
 }
 
-module.exports = hnLatestStream
+module.exports = hnLatestStream;
