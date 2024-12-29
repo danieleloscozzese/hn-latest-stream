@@ -1,9 +1,6 @@
 // SPDX-License-Identifier: ISC
-"use strict";
-const stream = require("readable-stream");
-const got = require("got");
 
-const { PassThrough } = stream;
+import { PassThrough } from "node:stream";
 
 const base = "https://hacker-news.firebaseio.com/v0";
 
@@ -62,4 +59,4 @@ function hnLatestStream(max = 10, output = "html") {
   return stream;
 }
 
-module.exports = hnLatestStream;
+export default hnLatestStream;

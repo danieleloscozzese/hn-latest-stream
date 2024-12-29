@@ -2,7 +2,7 @@
   "name": "@dagher/stream-hackernews",
   "version": "1.0.0",
   "description": "A JSON or HTML stream of the latest stories from hackernews",
-  "main": "index.js",
+  "main": "index.mjs",
   "keywords": [
     "stream",
     "streams"
@@ -15,13 +15,16 @@
     }
   ],
   "license": "ISC",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
-    "got": "^11.5.2",
-    "readable-stream": "^3.6.0"
+    "got": "^11.5.2"
   },
   "devDependencies": {
     "prettier": "3.4.2"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/danieleloscozzese/hn-latest-stream.git"
