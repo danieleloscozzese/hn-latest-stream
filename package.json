@@ -18,10 +18,8 @@
   "engines": {
     "node": ">=18"
   },
-  "dependencies": {
-    "got": "^11.5.2"
-  },
   "devDependencies": {
+    "@types/node": ">=18",
     "prettier": "3.4.2"
   },
   "type": "module",
