@@ -1,8 +1,9 @@
-'use strict'
-const stream = require('readable-stream')
-const got = require('got')
+// SPDX-License-Identifier: ISC
+"use strict";
+const stream = require("readable-stream");
+const got = require("got");
 
-const { PassThrough } = stream
+const { PassThrough } = stream;
 
 const base = 'https://hacker-news.firebaseio.com/v0'
 
