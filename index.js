@@ -36,8 +36,14 @@ async function hydrate (stream, max, json) {
   stream.end()
 }
 
-// output may be "HTML" or "objects"
-// if objects then the stream is an object mode stream
+/**
+ * Streams HN articles.
+ * @param {Number} max The maximum number of articles in a response
+ * (i.e. the page size)
+ * @param {'html'|'json'} output The output type, either HTML or JSON.
+ * If JSON is requested, the stream is created in object mode.
+ * @returns {stream.Readable} The stream with the results
+ */
 function hnLatestStream (max = 10, output = 'html') {
   output = (output + '').toLowerCase()
   if (output !== 'html' && output !== 'json') {
